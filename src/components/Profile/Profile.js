@@ -28,7 +28,7 @@ class Profile extends React.Component {
     }
 
     onProfileUpdate = (data) => {
-        fetch(`http://192.168.99.100:3001/profile/${this.props.user.id}`, {
+        fetch(`http://localhost:5000/profile/${this.props.user.id}`, {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json',

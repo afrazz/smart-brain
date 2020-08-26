@@ -18,7 +18,7 @@ class ProfileIcon extends React.Component {
     }
 
     onSignOutCall = () => {
-        fetch('http://192.168.99.100:3001/signout', {
+        fetch('http://localhost:5000/signout', {
             method: 'delete',
             headers: {
               'Content-Type': 'application/json',

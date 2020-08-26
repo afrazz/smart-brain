@@ -25,7 +25,7 @@ class Signin extends React.Component {
 
 
   onSubmitSignIn = () => {
-    fetch('http://192.168.99.100:3001/signin', {
+    fetch('http://localhost:5000/signin', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -37,7 +37,7 @@ class Signin extends React.Component {
       .then(data => {
         if (data.userId && data.success === 'true') {
           this.saveAuthTokenInSession(data.token)
-              fetch(`http://192.168.99.100:3001/profile/${data.userId}`, {
+              fetch(`http://localhost:5000/profile/${data.userId}`, {
                 method: 'get',
                 headers: {'Content-type': 'application/json', 'Authorization': data.token},
               })

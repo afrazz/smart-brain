@@ -27,7 +27,7 @@ class Register extends React.Component {
   }
 
   onSubmitRegister = () => {
-    fetch('http://192.168.99.100:3001/register', {
+    fetch('http://localhost:5000/register', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -40,7 +40,7 @@ class Register extends React.Component {
       .then(data => {
         if (data.userId && data.status === 'success') {
           this.setAuthSession(data.token);
-          fetch(`http://192.168.99.100:3001/profile/${data.userId}`, {
+          fetch(`http://localhost:5000/profile/${data.userId}`, {
                 method: 'get',
                 headers: {'Content-type': 'application/json', 'Authorization': data.token},
           }).then(resp => resp.json())

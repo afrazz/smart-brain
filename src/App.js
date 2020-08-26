@@ -62,14 +62,14 @@ class App extends Component {
   componentDidMount() {
     const token = window.localStorage.getItem('token');
     if(token) {
-      fetch('http://192.168.99.100:3001/signin', {
+      fetch('http://localhost:5000/signin', {
         method: 'post',
         headers: {'Content-type': 'application/json', 'Authorization': token},
       })
       .then(resp => resp.json())
       .then(data => {
         if(data && data.id) {
-          fetch(`http://192.168.99.100:3001/profile/${data.id}`, {
+          fetch(`http://localhost:5000/profile/${data.id}`, {
             method: 'get',
             headers: {'Content-type': 'application/json', 'Authorization': token},
           })
@@ -117,7 +117,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-      fetch('http://192.168.99.100:3001/imageurl', {
+      fetch('http://localhost:5000/imageurl', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',
@@ -130,7 +130,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if (response) {
-          fetch('http://192.168.99.100:3001/image', {
+          fetch('http://localhost:5000/image', {
             method: 'put',
             headers: {
               'Content-Type': 'application/json',
