@@ -28,7 +28,7 @@ class Profile extends React.Component {
     }
 
     onProfileUpdate = (data) => {
-        fetch(`http://localhost:5000/profile/${this.props.user.id}`, {
+        fetch(`http://localhost:5000/profile/${this.props.user.id}`, { // http://192.168.99.100:5000/imageurl -> if you are in docker toolbox
             method: 'post',
             headers: {
                 'Content-Type': 'application/json',

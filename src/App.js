@@ -62,14 +62,14 @@ class App extends Component {
   componentDidMount() {
     const token = window.localStorage.getItem('token');
     if(token) {
-      fetch('http://localhost:5000/signin', {
+      fetch('http://localhost:5000/signin', { // http://192.168.99.100:5000/signin -> if you are in docker toolbox
         method: 'post',
         headers: {'Content-type': 'application/json', 'Authorization': token},
       })
       .then(resp => resp.json())
       .then(data => {
         if(data && data.id) {
-          fetch(`http://localhost:5000/profile/${data.id}`, {
+          fetch(`http://localhost:5000/profile/${data.id}`, { // http://192.168.99.100:5000/profile/ -> if you are in docker toolbox
             method: 'get',
             headers: {'Content-type': 'application/json', 'Authorization': token},
           })
@@ -117,7 +117,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-      fetch('http://localhost:5000/imageurl', {
+      fetch('http://localhost:5000/imageurl', { // http://192.168.99.100:5000/imageurl -> if you are in docker toolbox
         method: 'post',
         headers: {
           'Content-Type': 'application/json',
@@ -130,7 +130,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if (response) {
-          fetch('http://localhost:5000/image', {
+          fetch('http://localhost:5000/image', { // http://192.168.99.100:5000/imageurl -> if you are in docker toolbox
             method: 'put',
             headers: {
               'Content-Type': 'application/json',
@@ -162,11 +162,7 @@ class App extends Component {
   }
 
   toggleModal = (what) => {
-    // this.setState( prevState => ({isProfileOpen: !prevState}))
     this.setState({isProfileOpen: !this.state.isProfileOpen})
-    // this.setState(prevState => ({
-    //   isProfileOpen: !prevState
-    // }));
   }
 
   render() {

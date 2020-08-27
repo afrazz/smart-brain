@@ -18,7 +18,7 @@ class ProfileIcon extends React.Component {
     }
 
     onSignOutCall = () => {
-        fetch('http://localhost:5000/signout', {
+        fetch('http://localhost:5000/signout', { // http://192.168.99.100:5000/signout -> if you are in docker toolbox
             method: 'delete',
             headers: {
               'Content-Type': 'application/json',

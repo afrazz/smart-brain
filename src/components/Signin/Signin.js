@@ -25,7 +25,7 @@ class Signin extends React.Component {
 
 
   onSubmitSignIn = () => {
-    fetch('http://localhost:5000/signin', {
+    fetch('http://localhost:5000/signin', { // http://192.168.99.100:5000/signin -> if you are in docker toolbox
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -37,7 +37,7 @@ class Signin extends React.Component {
       .then(data => {
         if (data.userId && data.success === 'true') {
           this.saveAuthTokenInSession(data.token)
-              fetch(`http://localhost:5000/profile/${data.userId}`, {
+              fetch(`http://localhost:5000/profile/${data.userId}`, { // http://192.168.99.100:5000/profile/ -> if you are in docker toolbox
                 method: 'get',
                 headers: {'Content-type': 'application/json', 'Authorization': data.token},
               })
