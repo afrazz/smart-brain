@@ -161,7 +161,7 @@ class App extends Component {
     this.setState({route: route});
   }
 
-  toggleModal = (what) => {
+  toggleModal = () => {
     this.setState({isProfileOpen: !this.state.isProfileOpen})
   }
 
